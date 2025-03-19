@@ -1,9 +1,15 @@
 import React from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { CartContext } from "../CartContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+
 
 function Navbar() {
 
     const activeStyle = "underline underline-offset-4"
+    const {count} = useContext(CartContext)
 
 
   return (
@@ -22,8 +28,9 @@ function Navbar() {
          <li><NavLink to="/my-orders" className={({ isActive }) => isActive ? activeStyle : undefined}>My Orders</NavLink></li>
          <li><NavLink to="/my-account" className={({ isActive }) => isActive ? activeStyle : undefined}>My Account</NavLink></li>
          <li><NavLink to="/sign-in" className={({ isActive }) => isActive ? activeStyle : undefined}>Sign In</NavLink></li>
-         <li> carrito de compras</li>
+         <li><FontAwesomeIcon icon={faCartShopping} /> {count}</li>
        </ul>
+    
     </nav>
   );
 }

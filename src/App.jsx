@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { ShoppingCardProvider } from "./Context";
+import { CartProvider } from "./CartContext";
 import Home from "./Pages/Home";
 import MyAccount from "./Pages/MyAccount";
 import MyOrder from "./Pages/MyOrder";
@@ -11,7 +11,7 @@ import "./App.css";
 
 function App() {
   return (
-    <ShoppingCardProvider >
+    <CartProvider >
     <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
         <Route path="*" element={<NotFound />} />{" "}
         {/* Ruta para manejar errores 404 */}
       </Routes>
-    </ShoppingCardProvider>
+    </CartProvider>
   );
 }
 
