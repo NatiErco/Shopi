@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
 
@@ -24,7 +24,7 @@ function Navbar() {
          <li><NavLink to="/others" className={({ isActive }) => isActive ? activeStyle : undefined}>Others</NavLink></li>
       </ul>
       <ul className="flex items-center gap-3">
-         <li className="text-black/60">nercolano.dev@gmail.com</li>
+         <li className="text-black/60"><FontAwesomeIcon icon={faUser} /></li>
          <li><NavLink to="/my-orders" className={({ isActive }) => isActive ? activeStyle : undefined}>My Orders</NavLink></li>
          <li><NavLink to="/my-account" className={({ isActive }) => isActive ? activeStyle : undefined}>My Account</NavLink></li>
          <li><NavLink to="/sign-in" className={({ isActive }) => isActive ? activeStyle : undefined}>Sign In</NavLink></li>

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import Card from "../Components/Card";
 import Layout from "../Components/Layout";
+import ProductDetail from "../Components/ProductDetail";
 
 function Home() {
 
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState([]); // Muestra todos los productos
+    const [filteredItems, setFilteredItems] = useState([]); // Solo los productos filtrados
     const [loading, setLoading] = useState(true); // Estado de carga
     const [error, setError] = useState(null); // Estado de error
 
@@ -20,6 +22,7 @@ function Home() {
 
           const data = await response.json();
           setItems(data);
+          setFilteredItems(data);
         } catch (error) {
           setError(error.message);
         } finally {
@@ -33,7 +36,7 @@ function Home() {
   
     return (
         <Layout>
-        <h1 className="text-xl font-bold mb-4">Home</h1>
+        <h1 className="text-xl font-bold mb-4">Exclusive Products</h1>
          
         {loading && <p>Cargando productos...</p>}
         {error && <p className="text-red-500">{error}</p>}
@@ -46,6 +49,7 @@ function Home() {
               !loading && <p>No hay productos disponibles.</p>
     )}
         </div>
+        <ProductDetail />
       </Layout>
     )
   }

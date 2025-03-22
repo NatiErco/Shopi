@@ -8,11 +8,13 @@ import SignIn from "./Pages/SignIn";
 import NotFound from "./Pages/NotFound";
 import Navbar from "./Components/Navbar";
 import "./App.css";
+import ProductDetail from "./Components/ProductDetail";
 
 function App() {
   return (
     <CartProvider >
     <Navbar />
+    <ProductDetail />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/my-account" element={<MyAccount />} />
